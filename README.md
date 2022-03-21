@@ -29,7 +29,7 @@ El minotauro empieza en el centro del laberinto y merodea por los caminos del mi
 Mientras tanto el jugador puede poner remedio a los actos del fantasma, recolocar las lámparas que tire, sacar a la cantante de la celda y ensañarse con los muebles
 de la guarida del fantasma, lo que hace que este se enfade, si el jugador no interviene, el fantasma rapta a la cantante<br>
 
-## Estancias
+## Estancias y comportamiento en estas
 
 + **Patio de butacas(P).** Estancia incial del público, dividido en Este y Oeste. Los espectadores huyen al vestíbulo si cae la lámpara correspondiente a su lado del patio de butacas,
 Esta conectada con el escenario y el vestíbulo, y es visible desde los palcos.
@@ -37,17 +37,81 @@ Esta conectada con el escenario y el vestíbulo, y es visible desde los palcos.
 + **Vestíbulo(V).** Es la zona más externa de la ópera, donde van los bloques de público
 cuando se asustan. Simplemente conecta con el patio de butacas.
 
-+ **Escenario (E).** Estancia inicial de la cantante, que intercala con las bambalinas(donde se toma su descanso), también conecta con el patio de butacas, los palcos y es posible dejarse caer
-al sótano oeste, aunque no es posible volver
++ **Escenario(E).** Estancia inicial de la cantante, que intercala con las bambalinas(donde se toma su descanso), también conecta con el patio de butacas, los palcos y es posible dejarse caer
+al sótano oeste, aunque no es posible volver, el fantasma no puede pisar estas estancias si hay público mirando, aunque puede capturar a la cantante y llevársela a donde quiera, soltándola 
+por voluntad propia o porque se sienta intimidado por la presencia del vizconde, si la cantante acaba en una estancia desconocida, empieza a vagar hasta ser encontrada por el vizconde
+que la lleva hasta una estancia que ella conozca, donde pueda volver al escenario o a las bambalinas
+
++ **Bambalinas(B).** Estancia donde suele descansar la cantante y que conecta con el escenario, el sótano oeste y que permite deslizarse por una rampa algo oculta al sótano este, sin posibilidad de regresar. 
+
++ **Palco oeste(Po).** Estancia inicial del vizconde, tiene una palanca para dejar caer la lámpara oeste del patio de butacas. 
+Conecta con el escenario, con el sótano oeste y permite ver el patio de butacas 
+
++ **Palco oeste(Pe).** Estancia similar al palco oeste, con una palanca que se puede usar para dejar caer la lámpara este del patio de butacas. 
+Conecta con el escenario, con el sótano este y permite ver el patio de butacas, aunque sin visibilidad en el otro sentido.
+
++ **Sótano oeste(So).**  Estancia que conecta con el palco oeste, con las bambalinas y con el
+sótano norte, aunque para recorrer esta conexión hace falta subirse a una barca. Solo puede subirse una persona(o una con una en brazos). La barca comienza en el sótano norte,
+pero hay una palanca para acercarla a cualquier lado del sótano.
+
++ **Sótano este(Se).**  Estancia que conecta con el palco este, y tanto con el sótano norte
+como con la sala de música donde compone su obra el fantasma, aunque para recorrer estas dos
+últimas conexiones hacen falta barcas. Por defecto, la barca que lleva al sótano norte sí está en
+esta orilla, pero la que lleva a la sala de música está en la orilla contraria. Aunque se puede
+llegar a esta estancia desde las bambalinas, por una trampilla, desde aquí no se conecta con las
+bambalinas.
+
++ **Celda(C).**  Estancia donde el fantasma deja a la cantante para completar su secuestro
+con éxito, usando una palanca que activa unas rejas que la impiden salir (y que por supuesto el
+vizconde podrá desactivar). Conecta con el sótano norte.
+
++ **Sótano norte(N).** Estancia que conecta con la celda, además de con la sala de música,
+el sótano este y el sótano oeste a través de sus correspondientes tres barcas.
+
++ **Sala de música(M)** Estancia inicial del fantasma, conecta mediante una barca con el sótano este, y con otra con el sótano
+norte.. El fantasma tiene el objetivo principal de secuestrar a la cantante, para lo que intentará
+buscarla en las bambalinas, en el escenario o si no logra dar con ella, explorando las demás
+estancias meticulosamente por si estuviera “perdida” por allí. No puede acceder al escenario si
+hay público mirando, de modo que, como objetivo secundario, necesita tirar las dos lámparas
+del techo para vaciar del todo el patio de butacas. Sea como sea, una vez atrapada la cantante, la
+llevará consigo hasta la celda, intentando usar siempre el camino con menor coste (recordando
+la última posición de las barcas y del vizconde que conoce, y eligiendo la ruta con menor coste,
+la que tenga más barcas a su favor y que evite al héroe de esta historia). Cuando llega hasta la
+celda la soltará allí, activará las rejas e irá hasta la sala de música, permaneciendo allí
+indefinidamente. Lo único que desconcentra al fantasma cuando está componiendo es escuchar
+a su musa cantar de nuevo en el escenario, reavivando sus deseos de secuestrarla y encerrarla
+otra vez en su celda. Por otro lado, si el fantasma llega a percibir el ruido de los golpes del
+vizconde a su piano, abandonará lo que esté haciendo (soltando a la cantante) y correrá
+enfurecido hasta allí para dedicar unos segundos a arreglar semejante estropicio.
+
+
 
 Las funcionalidades minimas que se piden son: 
 
-+ **A.** Mostrar el entorno virtual (el laberinto del Minotauro) de tamaño configurable, con un esquema de división de grafo de baldosas que incluirá una baldosa de salida, donde se ubica inicialmente el avatar (Teseo). Debe haber varios caminos alternativos para llegar a la salida, algunos más anchos y otros muy estrechos (pasillos de una única baldosa de anchura). El avatar estará controlado por el jugador mediante los cursores [0,5 ptos.]. <br><br>
-+ **B.** Situar en el centro del laberinto al agente inteligente que representa al enemigo (el Minotauro), quien realizará un merodeo constante, pasando a perseguir al 	avatar si se lo encuentra en su línea de visión [0,5 ptos.].<br><br>
-+ **C.** Representar el hilo de Ariadna (camino más corto a la baldosa de salida) pintado con una línea blanca y destacando las baldosas también con círculos blancos, a la vez que se activa la navegación automática de Teseo hasta la salida, todo ello mientras se mantenga
-pulsada la barra espaciadora [1 pto.].<br><br>
-+ **D.** Elegir (activando o desactivando la funcionalidad con la tecla S) si suavizar o no el camino generado por el algoritmo anterior, generalmente reduciendo las baldosas que forman parte del camino suavizado a la salida [1 pto.].<br><br>
-+ **E.** Desarrollar el movimiento completo de Teseo, que mientras tenemos pulsada la barra espaciadora, va moviéndose automáticamente siguiendo el hilo hacia la baldosa de salida. Esto hace desaparecer la parte del hilo que ya se ha recorrido, hilo que desaparece al completo en cuanto se suelta la barra espaciadora y se vuelve al movimiento manual [1 pto.].<br><br>
++ **A.** Mostrar el entorno virtual (la casa de la ópera), con un esquema de división de malla de
+navegación proporcionado por Unity, donde se ubiquen todos los elementos descritos
+anteriormente. El vizconde será controlado libremente por el jugador mediante los
+cursores y una única tecla de acción para interactuar con otros elementos. Aunque haya
+cámaras que sigan a cada uno de los personajes, conviene que haya una adicional que
+nos dé la vista general del entorno [0,5 ptos.].<br><br>
+
++ **B.** Hacer que parte del público huya tras la caída de una lámpara, y regrese en cuanto esté
+arreglada. Será una navegación y un movimiento trivial, sin apenas decisión [0,5 ptos.].<br><br>
+
++ **C.** Representar a la cantante como un agente inteligente basado en una máquina de estados
+que pasa del escenario a las bambalinas cuando toca, que puede ser “llevada” por los
+otros dos personajes hasta otra estancia, que navega algo desorientada cuando está en
+las estancias subterráneas, y que se deja llevar por el vizconde, con la esperanza de
+reencontrar el escenario y continuar su rutina allí. Tiene navegación, movimiento y
+percepción sencillos, y decisión mediante máquina de estados [1 ptos.].<br><br>
+
++ **D.** Desarrollar el árbol de comportamiento completo del fantasma, para que busque a la
+cantante, tire las lámparas, la capture, la lleve a la celda, active las rejas, etc. [1 pto.]<br><br>
+
++ **E.** Usar un sistema de gestión sensorial para que el fantasma reaccione realmente a lo que
+ve (en la propia estancia o estancias vecinas visibles) y lo que oye (el canto de su musa
+y el ruido de la sala de música), sin tener que recurrir a información privilegiada
+(únicamente recordando lo que ha visto anteriormente) [1 pto.]. <br><br>
 
 
 

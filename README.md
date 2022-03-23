@@ -137,20 +137,21 @@ La escena inicial contiene un **Mapa** con todas las estancias antes comentadas 
 
 ## Descripción de la Solución
 
-La solución consta de la implementación de 3 nuevos componentes, cuyo pseudocódigo está más abajo:
-+ Componente MapGenerator, que se encarga de la generaci�n prodecdural de laberintos.
-+ El componente PathFinder, que usaremos para encontrar el camino m�s corto mediante el hilo de Ariadna.
-+ El componente FollowPath, que llevar� a Teseo a seguir el camino que le indique el hilo de Ariadna. El pseudoc�digo de �ste componente no est� ya que solo consiste en seguir una secuencia de posiciones.
+La solución consta de la implementación de  nuevos componentes, cuyo pseudocódigo está más abajo:
++ Componente TreeDecisionMaking, que se encarga de la gestión de decisiones de los behaviour trees.
++ El componente PathFinder, que usaremos para encontrar el camino más corto a la sala del fantasma cuando secuestra la cantante y que lo siga.
++ Componente Wander o Merodeo, para que la cantante vague por las estancias
++ El componente StateMachineManager, encargado de  gestionar los states del statemachine.
++ Componente TaskSelector, que decidirá las acciones que tomará el fantasma al llegar a una sala con ayuda del behaviour tree.
 
-Además usaremos los componentes implmentados en la práctica 1, que se puden ver en el enlace de más abajo.
-Por ello, vamos reutilizar gran parte de la estructura de movimiento de la Practica 1. Sobretodo los componentes para el movimiento de Teseo. Por otro lado, cambiaremos un poco el comportamiento de Merodeo del Minotauro para que se mueva como si estuviera apatrullando el mapa. Mas abajo se puede ver el c�digo de lo que se tiene en mente. La explicacion de la estructura se puede ver [aqu�](https://github.com/IAV22-G02/P1)
+Además usaremos algunos los componentes implementados en la práctica 2, pero algo modificados para este ejercicio, que se pueden ver en el enlace de más abajo.
+Sobretodo los componentes para el movimiento de Teseo. Por otro lado, cambiaremos un poco el comportamiento de Merodeo de la cantante para que se mueva como si estuviera "perdida" por el mapa. Más abajo se puede ver el código de lo que se tiene en mente. La explicacion de la estructura se puede ver [aquí](https://github.com/IAV22-G02/P2)
 
 ### Opcionales
 
 La solución también consta de funcionalidades opcionales tales como:
-+ Generaci�n procedimental de laberintos (realizado)
-+ Permite a�adir m�s salidas al laberinto y modifica a Teseo para que, si hay varias
-salidas, salga por la m�s cercana, utilizando para ello el algoritmo de Dijkstra.
++ 
++ 
 
 
 El pseudocódigo de dichos componentes:
@@ -228,6 +229,174 @@ class RandomDecision extends Decision:
 
 ```
 
+## PathFinder(Fantasma)
+```python
+
+ function pathfindAStar(graph: Graph,
+	 start: Node,
+	 end: Node,
+	 heuristic: Heuristic
+	 ) -> Connection[]:
+	 # This structure is used to keep track of the
+	 # information we need for each node.
+	 class NodeRecord:
+	 node: Node
+	 connection: Connection
+	 costSoFar: float
+	 estimatedTotalCost: float
+
+	 # Initialize the record for the start node.
+	 startRecord = new NodeRecord()
+	 startRecord.node = start
+	 startRecord.connection = null
+	 startRecord.costSoFar = 0
+	 startRecord.estimatedTotalCost = heuristic.estimate(start)
+
+	 # Initialize the open and closed lists.
+	 open = new PathfindingList()
+
+	 open += startRecord
+	 closed = new PathfindingList()
+
+	 # Iterate through processing each node.
+	 while length(open) > 0:
+		 # Find the smallest element in the open list (using the
+		 # estimatedTotalCost).
+		 current = open.smallestElement()
+
+		 # If it is the goal node, then terminate.
+		 if current.node == goal:
+		 	break
+
+		 # Otherwise get its outgoing connections.
+		 connections = graph.getConnections(current)
+
+		 # Loop through each connection in turn.
+		 for connection in connections:
+			 # Get the cost estimate for the end node.
+			 endNode = connection.getToNode()
+			 endNodeCost = current.costSoFar + connection.getCost()
+
+		 # If the node is closed we may have to skip, or remove it
+		 # from the closed list.
+		 if closed.contains(endNode):
+			 # Here we find the record in the closed list
+			 # corresponding to the endNode.
+			 endNodeRecord = closed.find(endNode)
+
+		 # If we didn�t find a shorter route, skip.
+		 if endNodeRecord.costSoFar <= endNodeCost:
+		 	continue
+
+			 # Otherwise remove it from the closed list.
+			 closed -= endNodeRecord
+
+			 # We can use the node�s old cost values to calculate
+			 # its heuristic without calling the possibly expensive
+			 # heuristic function.
+			 endNodeHeuristic = endNodeRecord.estimatedTotalCost -
+			 endNodeRecord.costSoFar
+
+			 # Skip if the node is open and we�ve not found a better
+			 # route.
+		 else if open.contains(endNode):
+			 # Here we find the record in the open list
+			 # corresponding to the endNode.
+
+		 	endNodeRecord = open.find(endNode)
+
+		  # If our route is no better, then skip.
+		  if endNodeRecord.costSoFar <= endNodeCost:
+		  	continue
+
+			  # Again, we can calculate its heuristic.
+			  endNodeHeuristic = endNodeRecord.cost -
+			  endNodeRecord.costSoFar
+
+			  # Otherwise we know we�ve got an unvisited node, so make a
+			  # record for it.
+		  else:
+			  endNodeRecord = new NodeRecord()
+			  endNodeRecord.node = endNode
+
+			  # We�ll need to calculate the heuristic value using
+			  # the function, since we don�t have an existing record
+			  # to use.
+			  endNodeHeuristic = heuristic.estimate(endNode)
+
+			  # We�re here if we need to update the node. Update the
+			  # cost, estimate and connection.
+			  endNodeRecord.cost = endNodeCost
+			  endNodeRecord.connection = connection
+			  endNodeRecord.estimatedTotalCost = endNodeCost +
+			 endNodeHeuristic
+
+		 # And add it to the open list.
+		 if not open.contains(endNode):
+			 open += endNodeRecord
+
+		 # We�ve finished looking at the connections for the current
+		 # node, so add it to the closed list and remove it from the
+		 # open list.
+		 open -= current
+		 closed += current
+
+	 # We�re here if we�ve either found the goal, or if we�ve no more
+	 # nodes to search, find which.
+	 if current.node != goal:
+	 # We�ve run out of nodes without finding the goal, so there�s
+	 # no solution.
+	 return null
+
+	 else:
+	 # Compile the list of connections in the path.
+
+	 path = []
+
+	 # Work back along the path, accumulating connections.
+	 while current.node != start:
+	 path += current.connection
+	 current = current.connection.getFromNode()
+
+	 # Reverse the path, and return it.
+	 return reverse(path)
+```
+
+
+### Wander (Cantante)
+```python
+  # Is intersection uses navigation instead of movement
+  function IsIntersection(position)-> bool:
+  	coord : vector2
+	coord = posToGrid(position)
+	
+	return haveNeighboursIntersection(coord.x, coord.y)
+  
+  
+class KinematicWander :
+  character: Static
+  maxSpeed: float
+  position: vector2
+  # The maximum rotation speed we�d like, probably should be smaller
+  # than the maximum possible, for a leisurely change in direction.
+  maxRotation: float
+ 
+  function getSteering() -> KinematicSteeringOutput:
+	result = new KinematicSteeringOutput()
+
+	newDir: vector2 
+	if(isIntersection(position) || randomBinomial(0, 10) < 3)
+		toDir = randomDirection(position)
+
+		newDir = toDir - position; 
+
+		# Get velocity from the vector form of the orientation.
+		result.velocity = maxSpeed * newDir
+
+	return newDir;
+```
+
+
 ## StateMachine(Cantante y publico)
 ```python
 class StateMachine:
@@ -268,39 +437,6 @@ class StateMachine:
 
 	
 
-```
-
-### Wander (Cantante)
-```python
-  # Is intersection uses navigation instead of movement
-  function IsIntersection(position)-> bool:
-  	coord : vector2
-	coord = posToGrid(position)
-	
-	return haveNeighboursIntersection(coord.x, coord.y)
-  
-  
-class KinematicWander :
-  character: Static
-  maxSpeed: float
-  position: vector2
-  # The maximum rotation speed we�d like, probably should be smaller
-  # than the maximum possible, for a leisurely change in direction.
-  maxRotation: float
- 
-  function getSteering() -> KinematicSteeringOutput:
-	result = new KinematicSteeringOutput()
-
-	newDir: vector2 
-	if(isIntersection(position) || randomBinomial(0, 10) < 3)
-		toDir = randomDirection(position)
-
-		newDir = toDir - position; 
-
-		# Get velocity from the vector form of the orientation.
-		result.velocity = maxSpeed * newDir
-
-	return newDir;
 ```
 
 ### Selector Task (Fantasma)

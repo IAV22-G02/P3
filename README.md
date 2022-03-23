@@ -116,7 +116,7 @@ y el ruido de la sala de mísica), sin tener que recurrir a información privile
 
 Modelo de Vizconde             |  Modelo de Fantasma     |  Modelo de cantante
 :-------------------------:|:-------------------------:|:---------------------:
-<img src="https://github.com/IAV22-G02/P2/blob/main/Viscount.png" alt="drawing" width="200"/>|  <img src="https://github.com/IAV22-G02/P2/blob/main/Ghost.png" alt="drawing" width="200"/>|  <img src="https://github.com/IAV22-G02/P2/blob/main/Singer.png" alt="drawing" width="200"/>
+<img src="https://github.com/IAV22-G02/P3/blob/main/Viscount.png" alt="drawing" width="200"/>|  <img src="https://github.com/IAV22-G02/P3/blob/main/Ghost.png" alt="drawing" width="200"/>|  <img src="https://github.com/IAV22-G02/P3/blob/main/Singer.png" alt="drawing" width="200"/>
 
 # Descripción Punto de Partida
 

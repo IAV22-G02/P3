@@ -3,367 +3,274 @@ Repository for the Artificial Intelligence signature of the UCM. Practice 3
 ___________________________________________________________________________
 
 <!---
- # Video de pruebas [aquÌ](https://youtu.be/ztK_XIu5nJk)
+ # Video de pruebas [aquÔøΩ](https://youtu.be/ztK_XIu5nJk)
 -->
 
 # Autores
 
 ## Grupo 02
-LÛpez BenÌtez, ¡ngel   -   angelo06@ucm.es <br>
+L√≥pez Ben√≠tez, √Ångel   -   angelo06@ucm.es <br>
 Rave Robayo, Jose Daniel   -   jrave@ucm.es <br>
-Prado Echegaray, Iv·n   -   ivprado@ucm.es <br>
+Prado Echegaray, Iv√°n   -   ivprado@ucm.es <br>
 Mendoza Reyes, Juan Diego   -   juandiem@ucm.es <br>
 
 
 ## Resumen
 
-La pr·ctica consiste en implementar un prototipo de una simulaciÛn de la novela **El fantasma de la opera**, 
-La novela cuenta la historia de Erik, un m˙sico deforme que vive escondido en el sÛtano del Palacio de Garnier,
-despuÈs de componer su gran obra, Erik sueÒa con que sea interpretada por Christine DaaÈ, y tiene la intenciÛn de secuestrarla con el objetivo
-de que esta memorice la obra, pero debe espantar al p˙blico de la Ûpera y est· el vizconde Raoul de Chagny para comprometer sus planes. <br>
+La pr√°ctica consiste en implementar un prototipo de una simulaci√≥n de la novela **El fantasma de la opera**, 
+La novela cuenta la historia de Erik, un m√∫sico deforme que vive escondido en el s√≥tano del Palacio de Garnier,
+despu√©s de componer su gran obra, Erik sue√±a con que sea interpretada por Christine Daa√©, y tiene la intenci√≥n de secuestrarla con el objetivo
+de que esta memorice la obra, pero debe espantar al p√∫blico de la √≥pera, mientras que el vizconde Raoul de Chagny comprometer√° sus planes. <br>
 
 <br>
-La pr·ctica consta de una serie de estancias en la que se movera el Fantasma (controlado por **IA**) y el vizconde(controlado por el jugador).<br>
-El fantasma intentar· secuestras a la cantante para llevarla a su celda, mientras que la cantante actua en el escenario y va a la bambalinas entre actuaciones. <br>
-El minotauro empieza en el centro del laberinto y merodea por los caminos del mismo hasta que ve a Teseo, en este momento empieza a **perseguirlo**, hasta dar con Èl. <br>
-Mientras tanto el jugador puede poner remedio a los actos del fantasma, recolocar las l·mparas que tire, sacar a la cantante de la celda y ensaÒarse con los muebles
-de la guarida del fantasma, lo que hace que este se enfade, si el jugador no interviene, el fantasma rapta a la cantante<br>
+La pr√°ctica consta de una serie de estancias en la que se movera el Fantasma (controlado por **IA**) y el vizconde(controlado por el jugador).<br>
+El fantasma intentar√° secuestrar a la cantante para llevarla a su celda, mientras que la cantante act√∫a en el escenario y va a la bambalinas entre actuaciones. <br>
+Mientras tanto el jugador puede poner remedio a los actos del fantasma, recolocar las l√°mparas que tire, sacar a la cantante de la celda y ensa√±arse con los muebles
+de la guarida del fantasma, lo que hace que este se enfade y por supuesto, si el jugador no interviene, el fantasma raptar√° a la cantante<br>
 
 ## Estancias y comportamiento en estas
 
-+ **Patio de butacas(P).** Estancia incial del p˙blico, dividido en Este y Oeste. Los espectadores huyen al vestÌbulo si cae la l·mpara correspondiente a su lado del patio de butacas,
-Esta conectada con el escenario y el vestÌbulo, y es visible desde los palcos.
++ **Patio de butacas(P).** Estancia incial del p√∫blico, dividido en Este y Oeste. Los espectadores huyen al vest√≠bulo si cae la l√°mpara correspondiente a su lado del patio de butacas,
+Esta conectada con el escenario y el vest√≠bulo, y es visible desde los palcos.
 
-+ **VestÌbulo(V).** Es la zona m·s externa de la Ûpera, donde van los bloques de p˙blico
++ **VestÔøΩbulo(V).** Es la zona m√°s externa de la √≥pera, donde van los bloques de pÔøΩblico
 cuando se asustan. Simplemente conecta con el patio de butacas.
 
-+ **Escenario(E).** Estancia inicial de la cantante, que intercala con las bambalinas(donde se toma su descanso), tambiÈn conecta con el patio de butacas, los palcos y es posible dejarse caer
-al sÛtano oeste, aunque no es posible volver, el fantasma no puede pisar estas estancias si hay p˙blico mirando, aunque puede capturar a la cantante y llev·rsela a donde quiera, solt·ndola 
-por voluntad propia o porque se sienta intimidado por la presencia del vizconde, si la cantante acaba en una estancia desconocida, empieza a vagar hasta ser encontrada por el vizconde
++ **Escenario(E).** Estancia inicial de la cantante, que intercala con las bambalinas(donde se toma su descanso), tambi√©n conecta con el patio de butacas, los palcos y es posible dejarse caer
+al s√≥tano oeste, aunque no es posible volver, el fantasma no puede pisar estas estancias si hay p√∫blico mirando, aunque puede capturar a la cantante y llev√°rsela a donde quiera, solt√°ndola 
+por voluntad propia o porque se sienta intimidado por un choque con el vizconde. Si la cantante acaba en una estancia desconocida, empieza a vagar entre estancias hasta ser encontrada por el vizconde
 que la lleva hasta una estancia que ella conozca, donde pueda volver al escenario o a las bambalinas
 
-+ **Bambalinas(B).** Estancia donde suele descansar la cantante y que conecta con el escenario, el sÛtano oeste y que permite deslizarse por una rampa algo oculta al sÛtano este, sin posibilidad de regresar. 
++ **Bambalinas(B).** Estancia donde suele descansar la cantante y que conecta con el escenario, el s√≥tano oeste y que permite deslizarse por una rampa algo oculta al s√≥tano este, sin posibilidad de regresar. 
 
-+ **Palco oeste(Po).** Estancia inicial del vizconde, tiene una palanca para dejar caer la l·mpara oeste del patio de butacas. 
-Conecta con el escenario, con el sÛtano oeste y permite ver el patio de butacas 
++ **Palco oeste(Po).** Estancia inicial del vizconde, tiene una palanca para dejar caer la l√°mpara oeste del patio de butacas. 
+Conecta con el escenario, con el s√≥tano oeste y permite ver el patio de butacas 
 
-+ **Palco oeste(Pe).** Estancia similar al palco oeste, con una palanca que se puede usar para dejar caer la l·mpara este del patio de butacas. 
-Conecta con el escenario, con el sÛtano este y permite ver el patio de butacas, aunque sin visibilidad en el otro sentido.
++ **Palco oeste(Pe).** Estancia similar al palco oeste, con una palanca que se puede usar para dejar caer la l√°mpara este del patio de butacas. 
+Conecta con el escenario, con el s√≥tano este y permite ver el patio de butacas, aunque sin visibilidad en el otro sentido.
 
-+ **SÛtano oeste(So).**  Estancia que conecta con el palco oeste, con las bambalinas y con el
-sÛtano norte, aunque para recorrer esta conexiÛn hace falta subirse a una barca. Solo puede subirse una persona(o una con una en brazos). La barca comienza en el sÛtano norte,
-pero hay una palanca para acercarla a cualquier lado del sÛtano.
++ **S√≥tano oeste(So).**  Estancia que conecta con el palco oeste, con las bambalinas y con el
+s√≥tano norte, aunque para recorrer esta conexi√≥n hace falta subirse a una barca. Solo puede subirse una persona(o una con una en brazos). La barca comienza en el s√≥tano norte,
+pero hay una palanca para acercarla a cualquier lado del s√≥tano.
 
-+ **SÛtano este(Se).**  Estancia que conecta con el palco este, y tanto con el sÛtano norte
-como con la sala de m˙sica donde compone su obra el fantasma, aunque para recorrer estas dos
-˙ltimas conexiones hacen falta barcas. Por defecto, la barca que lleva al sÛtano norte sÌ est· en
-esta orilla, pero la que lleva a la sala de m˙sica est· en la orilla contraria. Aunque se puede
-llegar a esta estancia desde las bambalinas, por una trampilla, desde aquÌ no se conecta con las
++ **S√≥tano este(Se).**  Estancia que conecta con el palco este, y tanto con el s√≥tano norte
+como con la sala de m√∫sica donde compone su obra el fantasma, aunque para recorrer estas dos
+√∫ltimas conexiones hacen falta barcas. Por defecto, la barca que lleva al s√≥tano norte s√≠ est√° en
+esta orilla, pero la que lleva a la sala de m√∫sica est√° en la orilla contraria. Aunque se puede
+llegar a esta estancia desde las bambalinas, por una trampilla, desde aqu√≠ no se conecta con las
 bambalinas.
 
 + **Celda(C).**  Estancia donde el fantasma deja a la cantante para completar su secuestro
-con Èxito, usando una palanca que activa unas rejas que la impiden salir (y que por supuesto el
-vizconde podr· desactivar). Conecta con el sÛtano norte.
+con √©xito, usando una palanca que activa unas rejas que la impiden salir (y que por supuesto el
+vizconde podr√° desactivar). Conecta con el s√≥tano norte.
 
-+ **SÛtano norte(N).** Estancia que conecta con la celda, adem·s de con la sala de m˙sica,
-el sÛtano este y el sÛtano oeste a travÈs de sus correspondientes tres barcas.
++ **S√≥tano norte(N).** Estancia que conecta con la celda, adem√°s de con la sala de m√∫sica,
+el s√≥tano este y el s√≥tano oeste a trav√©s de sus correspondientes tres barcas.
 
-+ **Sala de m˙sica(M)** Estancia inicial del fantasma, conecta mediante una barca con el sÛtano este, y con otra con el sÛtano
-norte.. El fantasma tiene el objetivo principal de secuestrar a la cantante, para lo que intentar·
-buscarla en las bambalinas, en el escenario o si no logra dar con ella, explorando las dem·s
-estancias meticulosamente por si estuviera ìperdidaî por allÌ. No puede acceder al escenario si
-hay p˙blico mirando, de modo que, como objetivo secundario, necesita tirar las dos l·mparas
++ **Sala de m√∫sica(M)** Estancia inicial del fantasma, conecta mediante una barca con el s√≥tano este, y con otra con el s√≥tano
+norte.. El fantasma tiene el objetivo principal de secuestrar a la cantante, para lo que intentar√°
+buscarla en las bambalinas, en el escenario o si no logra dar con ella, explorando las dem√°s
+estancias meticulosamente por si estuviera "perdida" por all√≠. No puede acceder al escenario si
+hay p√∫blico mirando, de modo que, como objetivo secundario, necesita tirar las dos l√°mparas
 del techo para vaciar del todo el patio de butacas. Sea como sea, una vez atrapada la cantante, la
-llevar· consigo hasta la celda, intentando usar siempre el camino con menor coste (recordando
-la ˙ltima posiciÛn de las barcas y del vizconde que conoce, y eligiendo la ruta con menor coste,
-la que tenga m·s barcas a su favor y que evite al hÈroe de esta historia). Cuando llega hasta la
-celda la soltar· allÌ, activar· las rejas e ir· hasta la sala de m˙sica, permaneciendo allÌ
-indefinidamente. Lo ˙nico que desconcentra al fantasma cuando est· componiendo es escuchar
+llevar√° consigo hasta la celda, intentando usar siempre el camino con menor coste (recordando
+la √∫ltima posici√≥n de las barcas y del vizconde que conoce, y eligiendo la ruta con menor coste,
+la que tenga m√°s barcas a su favor y que evite al h√©roe de esta historia). Cuando llega hasta la
+celda la soltar√° all√≠, activar√° las rejas e ir√° hasta la sala de m√∫sica, permaneciendo all√≠
+indefinidamente. Lo √∫nico que desconcentra al fantasma cuando est√° componiendo es escuchar
 a su musa cantar de nuevo en el escenario, reavivando sus deseos de secuestrarla y encerrarla
 otra vez en su celda. Por otro lado, si el fantasma llega a percibir el ruido de los golpes del
-vizconde a su piano, abandonar· lo que estÈ haciendo (soltando a la cantante) y correr·
-enfurecido hasta allÌ para dedicar unos segundos a arreglar semejante estropicio.
+vizconde a su piano, abandonar√° lo que est√° haciendo (soltando a la cantante) y correr√°
+enfurecido hasta all√≠ para dedicar unos segundos a arreglar semejante estropicio.
 
 
 
-Las funcionalidades minimas que se piden son: 
+Las funcionalidades m√±inimas que se piden son: 
 
-+ **A.** Mostrar el entorno virtual (la casa de la Ûpera), con un esquema de divisiÛn de malla de
-navegaciÛn proporcionado por Unity, donde se ubiquen todos los elementos descritos
-anteriormente. El vizconde ser· controlado libremente por el jugador mediante los
-cursores y una ˙nica tecla de acciÛn para interactuar con otros elementos. Aunque haya
-c·maras que sigan a cada uno de los personajes, conviene que haya una adicional que
-nos dÈ la vista general del entorno [0,5 ptos.].<br><br>
++ **A.** Mostrar el entorno virtual (la casa de la √≥pera), con un esquema de divisi√≥n de malla de
+navegaci√≥n proporcionado por Unity, donde se ubiquen todos los elementos descritos
+anteriormente. El vizconde ser√° controlado libremente por el jugador mediante los
+cursores y una √∫nica tecla de acci√≥n para interactuar con otros elementos. Aunque haya
+c√°maras que sigan a cada uno de los personajes, conviene que haya una adicional que
+nos d√© la vista general del entorno [0,5 ptos.].<br><br>
 
-+ **B.** Hacer que parte del p˙blico huya tras la caÌda de una l·mpara, y regrese en cuanto estÈ
-arreglada. Ser· una navegaciÛn y un movimiento trivial, sin apenas decisiÛn [0,5 ptos.].<br><br>
++ **B.** Hacer que parte del p√∫blico huya tras la ca√≠da de una l√°mpara, y regrese en cuanto estÔøΩ
+arreglada. Ser√° una navegaci√≥n y un movimiento trivial, sin apenas decisi√≥n [0,5 ptos.].<br><br>
 
-+ **C.** Representar a la cantante como un agente inteligente basado en una m·quina de estados
-que pasa del escenario a las bambalinas cuando toca, que puede ser ìllevadaî por los
-otros dos personajes hasta otra estancia, que navega algo desorientada cuando est· en
-las estancias subterr·neas, y que se deja llevar por el vizconde, con la esperanza de
-reencontrar el escenario y continuar su rutina allÌ. Tiene navegaciÛn, movimiento y
-percepciÛn sencillos, y decisiÛn mediante m·quina de estados [1 ptos.].<br><br>
++ **C.** Representar a la cantante como un agente inteligente basado en una m√°quina de estados
+que pasa del escenario a las bambalinas cuando toca, que puede ser "llevada" por los
+otros dos personajes hasta otra estancia, que navega algo desorientada cuando est√° en
+las estancias subterr√°neas, y que se deja llevar por el vizconde, con la esperanza de
+reencontrar el escenario y continuar su rutina all√≠. Tiene navegaci√≥n, movimiento y
+percepci√≥n sencillos, y decisi√≥n mediante m√°quina de estados [1 ptos.].<br><br>
 
-+ **D.** Desarrollar el ·rbol de comportamiento completo del fantasma, para que busque a la
-cantante, tire las l·mparas, la capture, la lleve a la celda, active las rejas, etc. [1 pto.]<br><br>
++ **D.** Desarrollar el √°rbol de comportamiento completo del fantasma, para que busque a la
+cantante, tire las l√°mparas, la capture, la lleve a la celda, active las rejas, etc. [1 pto.]<br><br>
 
-+ **E.** Usar un sistema de gestiÛn sensorial para que el fantasma reaccione realmente a lo que
++ **E.** Usar un sistema de gesti√≥n sensorial para que el fantasma reaccione realmente a lo que
 ve (en la propia estancia o estancias vecinas visibles) y lo que oye (el canto de su musa
-y el ruido de la sala de m˙sica), sin tener que recurrir a informaciÛn privilegiada
-(˙nicamente recordando lo que ha visto anteriormente) [1 pto.]. <br><br>
+y el ruido de la sala de m√≠sica), sin tener que recurrir a informaci√≥n privilegiada
+(√∫nicamente recordando lo que ha visto anteriormente) [1 pto.]. <br><br>
 
 
 
-Modelo de Minotauro             |  Modelo de Teseo
-:-------------------------:|:-------------------------:
-<img src="https://github.com/IAV22-G02/P2/blob/main/Minotauro.png" alt="drawing" width="200"/>  |  <img src="https://github.com/IAV22-G02/P2/blob/main/Teseo.png" alt="drawing" width="200"/>
+Modelo de Vizconde             |  Modelo de Fantasma     |  Modelo de cantante
+:-------------------------:|:-------------------------:|:---------------------:
+<img src="https://github.com/IAV22-G02/P2/blob/main/Viscount.png" alt="drawing" width="200"/>|  <img src="https://github.com/IAV22-G02/P2/blob/main/Ghost.png" alt="drawing" width="200"/>|  <img src="https://github.com/IAV22-G02/P2/blob/main/Singer.png" alt="drawing" width="200"/>
 
-# DescripciÛn Punto de Partida
+# Descripci√≥n Punto de Partida
 
-## [Commit](https://github.com/IAV22-G02/P2/commit/ed26cda0429e6a28e262607879a93b947d5fc54e) de Punto de Partida 
+## [Commit](https://https://github.com/IAV22-G02/P3/commit/8f2763186f347ed4252ba3a6574eedd179715527) de Punto de Partida 
 
-La escena incial contiene un **Grid** con un mapa de prueba (Èste se puede generar **proceduralmente**), modelos para el minotauro y teseo, materiales y prefabs para los obstaculos adem·s de los siguientes scripts:
+La escena inicial contiene un **Mapa** con todas las estancias antes comentadas y sus correspondientes conexiones entre ellas, modelos del p√∫blico, el vizconde, el fantasma y la cantante, adem√°s de los prefabs de objetos interactivos como son el piano, las palancas y las barcas. Y en cuanto a scripts se encuentran:<br>
 
-**BinaryHip**: Una pila de informaciÛn ˙til para ordenar datos e implementar colas de prioridad.<br>
-**Edge**: ConexiÛn entre nodos, ˙til para calcular el coste de atravesar una casilla.<br>
-**Graph**: Clase abstracta para implementar grafos.<br>
-**GraphGrid**: Clase que genera el mapa a partir de un archivo .map.<br>
-**TesterGrahh**: Clase que contiene distintos algoritmos para encontrar caminos en grafos. <br>
-**Vertex**: Cada uno de los vÈrtices del grafo. <br>
+**Game Blackboarf**: Clase que tiene la informaci√≥n de las estancias del mapa y palancas<br>
+**Player**: Clase encargada de gestionar las acciones del vizconde<br>
+**Cantante**: Clase encargada del comportamiento y movimiento de la cantante<br>
+**CameraMananager**: Clase que gestiona los diferentes puntos de vista en el escenario<br>
+**Scripts de interacci√≥n**: M√∫ltiples scripts de objetos interactivos que avisan de un contacto con ellos<br>
+**NavMesh, StateManager y Behaviour Tree**: Pertenecientes a los personajes, que se encargan de la toma de decisiones y pathing por el mapa<br>
 
 # Estructura de Clases
-![text](https://github.com/IAV22-G02/P2/blob/main/UMLMaze.png)
 
 <br>
 
-## DescripciÛn de la SoluciÛn
+## Descripci√≥n de la Soluci√≥n
 
-La soluciÛn consta de la implementaciÛn de 3 nuevos componentes, cuyo pseudocÛdigo est· m·s abajo:
-+ Componente MapGenerator, que se encarga de la generaciÛn prodecdural de laberintos.
-+ El componente PathFinder, que usaremos para encontrar el camino m·s corto mediante el hilo de Ariadna.
-+ El componente FollowPath, que llevar· a Teseo a seguir el camino que le indique el hilo de Ariadna. El pseudocÛdigo de Èste componente no est· ya que solo consiste en seguir una secuencia de posiciones.
+La soluci√≥n consta de la implementaci√≥n de 3 nuevos componentes, cuyo pseudoc√≥digo est√° m√°s abajo:
++ Componente MapGenerator, que se encarga de la generaciÔøΩn prodecdural de laberintos.
++ El componente PathFinder, que usaremos para encontrar el camino mÔøΩs corto mediante el hilo de Ariadna.
++ El componente FollowPath, que llevarÔøΩ a Teseo a seguir el camino que le indique el hilo de Ariadna. El pseudocÔøΩdigo de ÔøΩste componente no estÔøΩ ya que solo consiste en seguir una secuencia de posiciones.
 
-Adem·s usaremos los componente implmentados en la pr·ctica 1, que se puden ver en este enlace()
-Adem·s vamos reutilizar gran parte de la estructura de movimiento de la Practica 1. Sobretodo los componentes para el movimiento de Teseo. Por otro lado, cambiaremos un poco el comportamiento de Merodeo del Minotauro para que se mueva como si estuviera apatrullando el mapa. Mas abajo se puede ver el cÛdigo de lo que se tiene en mente. La explicacion de la estructura se puede ver [aquÌ](https://github.com/IAV22-G02/P1)
+Adem√°s usaremos los componentes implmentados en la pr√°ctica 1, que se puden ver en el enlace de m√°s abajo.
+Por ello, vamos reutilizar gran parte de la estructura de movimiento de la Practica 1. Sobretodo los componentes para el movimiento de Teseo. Por otro lado, cambiaremos un poco el comportamiento de Merodeo del Minotauro para que se mueva como si estuviera apatrullando el mapa. Mas abajo se puede ver el cÔøΩdigo de lo que se tiene en mente. La explicacion de la estructura se puede ver [aquÔøΩ](https://github.com/IAV22-G02/P1)
 
 ### Opcionales
 
-La soluciÛn tambiÈn consta de funcionalidades opcionlaes tales como:
-+ GeneraciÛn procedimental de laberintos (realizado)
-+ Permite aÒadir m·s salidas al laberinto y modifica a Teseo para que, si hay varias
-salidas, salga por la m·s cercana, utilizando para ello el algoritmo de Dijkstra.
+La soluci√≥n tambi√©n consta de funcionalidades opcionales tales como:
++ GeneraciÔøΩn procedimental de laberintos (realizado)
++ Permite aÔøΩadir mÔøΩs salidas al laberinto y modifica a Teseo para que, si hay varias
+salidas, salga por la mÔøΩs cercana, utilizando para ello el algoritmo de Dijkstra.
 
 
-El pseudocÛdigo de dichos componentes:
+El pseudoc√≥digo de dichos componentes:
 
-## MazeGenerator (Map)
+## TreeDecisionMaking (Fantasma y cantante)
 ```python
-function maze(level: Level, start: Location):
- # A stack of locations we can branch from. locations = [start]
- level.startAt(start)
+class DecisionTreeNode:
+	 # Recursively walk through the tree.
+	function makeDecision() -> DecisionTreeNode
 
- while locations:
- current = locations.top()
+class Action extends DecisionTreeNode:
+	function makeDecision() -> DecisionTreeNode:
+		return this
 
- # Try to connect to a neighboring location.
- next = level.makeConnection(current)
- if next:
- # If successful, it will be our next iteration.
- locations.push(next)
- else:
- locations.pop()
+class Decision extends DecisionTreeNode:
+	trueNode: DecisionTreeNode
+	falseNode: DecisionTreeNode
 
-class Level:
-	function startAt(location: Location)
-	function makeConnection(location: Location) -> Location
+	# Defined in subclasses, with the appropriate type.
+	function testValue() -> any
 
-class Location:
-	x: int
-	x: int
-	x: int
-	y: int
+	# Perform the test.
+	function getBranch() -> DecisionTreeNode
 
- class Connections:
-	inMaze: bool = false
-	directions: bool[4] = [false, false, false, false]
+	# Recursively walk through the tree.
+	function makeDecision() -> DecisionTreeNode
 
- class GridLevel:
-	# dx, dy, and index into the Connections.directions array.
-	NEIGHBORS = [(1, 0, 0), (0, 1, 1), (0, -1, 2), (-1, 0, 3)]
+class FloatDecision extends Decision:
+	minValue: float
+	maxValue: float
 
-	width: int
-	height: int
-	cells: Connections[width][height]
+	function testValue() -> float
 
-	function startAt(location: Location):
-	cells[location.x][location.y].inMaze = true
+	function getBranch() -> DecisionTreeNode:
+	if maxValue >= testValue() >= minValue:
+		return trueNode
+	else:
+		return falseNode
 
- function canPlaceCorridor(x: int, y: int, dirn :int) -> bool:
-	# Must be in-bounds and not already part of the maze.
-	return 0 <= x < width and
-	0 <= y < height and
-	not cells[x][y].inMaze
+class Decision extends DecisionTreeNode:
+ function makeDecision() -> DecisionTreeNode:
+ # Make the decision and recurse based on the result.
+ branch: DecisionTreeNode = getBranch()
+	 return branch.makeDecision()
 
- function makeConnection(location: Location) -> Location:
-	# Consider neighbors in a random order.
-	neighbors = shuffle(NEIGHBORS)
+class MultiDecision extends DecisionTreeNode:
+	daughterNodes: DecisionTreeNode[]
 
-	x = location.x
-	y = location.y
-	for (dx, dy, dirn) in neighbors:
+	function testValue() -> int
 
-		# Check if that location is valid.
-		nx = x + dx
-		ny = y + dy
-		fromDirn = 3 - dirn
-		if canPlaceCorridor(nx, ny, fromDirn):
+	# Carries out the test and returns the node to follow.
+	function getBranch() -> DecisionTreeNode:
+		return daughterNodes[testValue()]
+	# Recursively runs the algorithm, exactly as before.
+	function makeDecision() -> DecisionTreeNode:
+	branch: DecisionTreeNode = getBranch()
+		return branch.makeDecision()
 
-		#Perform the connection.
-		cells[x][y].directions[dirn] = true
-		cells[nx][ny].inMaze = true
-		cells[nx][ny].directions[fromDirn] = true return Location(nx, ny)
+class RandomDecision extends Decision:
+	lastFrame: int = -1
+	currentDecision: bool = false
 
- # null of the neighbors were valid.
- return null
-```
+	function testValue() -> bool:
+	frame = getCurrentFrame()
 
-## PathFinder(Teseo)
-```python
+	# Check if our stored decision is too old.
+	if frame > lastFrame + 1:
+		# Make a new decision and store it.
+		currentDecision = randomBoolean()
 
- function pathfindAStar(graph: Graph,
-	 start: Node,
-	 end: Node,
-	 heuristic: Heuristic
-	 ) -> Connection[]:
-	 # This structure is used to keep track of the
-	 # information we need for each node.
-	 class NodeRecord:
-	 node: Node
-	 connection: Connection
-	 costSoFar: float
-	 estimatedTotalCost: float
+	# Either way we need to store when we were last called.
+	lastFrame = frame
 
-	 # Initialize the record for the start node.
-	 startRecord = new NodeRecord()
-	 startRecord.node = start
-	 startRecord.connection = null
-	 startRecord.costSoFar = 0
-	 startRecord.estimatedTotalCost = heuristic.estimate(start)
-
-	 # Initialize the open and closed lists.
-	 open = new PathfindingList()
-
-	 open += startRecord
-	 closed = new PathfindingList()
-
-	 # Iterate through processing each node.
-	 while length(open) > 0:
-		 # Find the smallest element in the open list (using the
-		 # estimatedTotalCost).
-		 current = open.smallestElement()
-
-		 # If it is the goal node, then terminate.
-		 if current.node == goal:
-		 	break
-
-		 # Otherwise get its outgoing connections.
-		 connections = graph.getConnections(current)
-
-		 # Loop through each connection in turn.
-		 for connection in connections:
-			 # Get the cost estimate for the end node.
-			 endNode = connection.getToNode()
-			 endNodeCost = current.costSoFar + connection.getCost()
-
-		 # If the node is closed we may have to skip, or remove it
-		 # from the closed list.
-		 if closed.contains(endNode):
-			 # Here we find the record in the closed list
-			 # corresponding to the endNode.
-			 endNodeRecord = closed.find(endNode)
-
-		 # If we didnít find a shorter route, skip.
-		 if endNodeRecord.costSoFar <= endNodeCost:
-		 	continue
-
-			 # Otherwise remove it from the closed list.
-			 closed -= endNodeRecord
-
-			 # We can use the nodeís old cost values to calculate
-			 # its heuristic without calling the possibly expensive
-			 # heuristic function.
-			 endNodeHeuristic = endNodeRecord.estimatedTotalCost -
-			 endNodeRecord.costSoFar
-
-			 # Skip if the node is open and weíve not found a better
-			 # route.
-		 else if open.contains(endNode):
-			 # Here we find the record in the open list
-			 # corresponding to the endNode.
-
-		 	endNodeRecord = open.find(endNode)
-
-		  # If our route is no better, then skip.
-		  if endNodeRecord.costSoFar <= endNodeCost:
-		  	continue
-
-			  # Again, we can calculate its heuristic.
-			  endNodeHeuristic = endNodeRecord.cost -
-			  endNodeRecord.costSoFar
-
-			  # Otherwise we know weíve got an unvisited node, so make a
-			  # record for it.
-		  else:
-			  endNodeRecord = new NodeRecord()
-			  endNodeRecord.node = endNode
-
-			  # Weíll need to calculate the heuristic value using
-			  # the function, since we donít have an existing record
-			  # to use.
-			  endNodeHeuristic = heuristic.estimate(endNode)
-
-			  # Weíre here if we need to update the node. Update the
-			  # cost, estimate and connection.
-			  endNodeRecord.cost = endNodeCost
-			  endNodeRecord.connection = connection
-			  endNodeRecord.estimatedTotalCost = endNodeCost +
-			 endNodeHeuristic
-
-		 # And add it to the open list.
-		 if not open.contains(endNode):
-			 open += endNodeRecord
-
-		 # Weíve finished looking at the connections for the current
-		 # node, so add it to the closed list and remove it from the
-		 # open list.
-		 open -= current
-		 closed += current
-
-	 # Weíre here if weíve either found the goal, or if weíve no more
-	 # nodes to search, find which.
-	 if current.node != goal:
-	 # Weíve run out of nodes without finding the goal, so thereís
-	 # no solution.
-	 return null
-
-	 else:
-	 # Compile the list of connections in the path.
-
-	 path = []
-
-	 # Work back along the path, accumulating connections.
-	 while current.node != start:
-	 path += current.connection
-	 current = current.connection.getFromNode()
-
-	 # Reverse the path, and return it.
-	 return reverse(path)
-
+	return currentDecision
 
 ```
 
-### Wander 2 (Ours) (Minotauro)
+## StateMachine(Cantante y publico)
+```python
+class StateMachine:
+	# We‚Äôre in one state at a time.
+	initialState: State
+	currentState: State = initialState
+
+	# Checks and applies transitions, returning a list of actions.
+	function update() -> Action[]:
+	# Assume no transition is triggered.
+	triggered: Transition = null
+
+	# Check through each transition and store the first
+	# one that triggers.
+	for transition in currentState.getTransitions():
+	if transition.isTriggered():
+		triggered = transition
+		break
+
+	# Check if we have a transition to fire.
+	if triggered:
+		# Find the target state.
+		targetState = triggered.getTargetState()
+
+		# Add the exit action of the old state, the
+		# transition action and the entry for the new state.
+		actions = currentState.getExitActions()
+		actions += triggered.getActions()
+		actions += targetState.getEntryActions()
+
+		# Complete the transition and return the action list.
+		currentState = targetState
+		return actions
+
+	# Otherwise just return the current state‚Äôs actions.
+	else:
+		return currentState.getActions()
+
+	
+
+```
+
+### Wander (Cantante)
 ```python
   # Is intersection uses navigation instead of movement
   function IsIntersection(position)-> bool:
@@ -377,7 +284,7 @@ class KinematicWander :
   character: Static
   maxSpeed: float
   position: vector2
-  # The maximum rotation speed weíd like, probably should be smaller
+  # The maximum rotation speed weÔøΩd like, probably should be smaller
   # than the maximum possible, for a leisurely change in direction.
   maxRotation: float
  
@@ -396,25 +303,47 @@ class KinematicWander :
 	return newDir;
 ```
 
-## Seek(Minotauro)
+### Selector Task (Fantasma)
 ```python
-class KinematicSeek:
- character: Static
- target: Static
+class Task:
+	# Return on success (true) or failure (false).
+	function run() -> bool
 
- maxSpeed: float
+class EnemyNear extends Task:
+	function run() -> bool:
+	# Task fails if there is no enemy nearby.
+	return distanceToEnemy < 10
 
- function getSteering() -> KinematicSteeringOutput:
-	 result = new KinematicSteeringOutput()
-	 # Get the direction to the target.
-	 result.velocity = theseus.position - character.position
+class PlayAnimation extends Task:
+	animationId: int
+	speed: float = 1.0
+	function run() -> bool:
+	if animationEngine.ready():
+		animationEngine.play(animationId, speed)
+		return true
+	else:
+		# Task failure, the animation could not be played.
+		return false
 
-	 # The velocity is along this direction, at full speed.
-	 result.velocity.normalize()
-	 result.velocity *= maxSpeed
+class Selector extends Task:
+	children: Task[]
 
-	 result.rotation = 0
-	 return result
+	function run() -> bool:
+	for c in children:
+		if c.run():
+			return true
+	return false
+
+class Sequence extends Task:
+	children: Task[]
+	
+	function run() -> bool:
+	for c in children:
+		if not c.run():
+			return false
+	return true
+
+
 ```
 
 

@@ -14,8 +14,6 @@ public class GhostPalancaAction : Action
     GameObject lever;
     GameBlackboard blackboard;
 
-    bool butacasVacias = false;
-
     public override void OnAwake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,9 +22,16 @@ public class GhostPalancaAction : Action
 
     public override TaskStatus OnUpdate()
     {
-        if (butacasVacias) return TaskStatus.Success;
-
         lever = blackboard.nearestLever(this.gameObject);
+
+        ControlPalanca palancaReal = lever.GetComponentInChildren<ControlPalanca>();
+
+        GameObject publico = palancaReal.publico;
+
+        Publico publicoScript = publico.GetComponentInChildren<Publico>();
+
+        if (!publicoScript.getLuces()) return TaskStatus.Success;
+
         var navHit = new NavMeshHit();
         NavMesh.SamplePosition(transform.position, out navHit, 2, NavMesh.AllAreas);
         if(agent.isActiveAndEnabled) agent.SetDestination(lever.transform.position);
@@ -34,7 +39,6 @@ public class GhostPalancaAction : Action
         if (Vector3.SqrMagnitude(transform.position - lever.transform.position) < 1)
         {
             agent.SetDestination(transform.position);
-            butacasVacias = true;
             return TaskStatus.Success;
         }
         else return TaskStatus.Running;

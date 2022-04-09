@@ -4403,6 +4403,7 @@ MonoBehaviour:
   tiempoDeCanto: 1
   tiempoDeDescanso: 20
   capturada: 0
+  asaltante: {fileID: 0}
   anguloVistaHorizontal: 93.4800033569336
   distanciaVista: 8
   objetivo: {fileID: 944435481}
@@ -17428,7 +17429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373871681117018864}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: 1.04, z: -0.09}
+  m_LocalPosition: {x: -0.48, y: 1.04, z: 22.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 394071134}
@@ -17498,8 +17499,8 @@ MonoBehaviour:
         byteData: 
         byteDataArray: 
       Version: 1.7.2
-  gizmoViewMode: 0
-  showBehaviorDesignerGizmo: 0
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
 --- !u!4 &2536986899609911509
 Transform:
   m_ObjectHideFlags: 0

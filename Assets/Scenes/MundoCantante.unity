@@ -4209,8 +4209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda1dafb473ee2d47acfd3301f82447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoDeCanto: 5
-  tiempoDeDescanso: 5
+  tiempoDeCanto: 1
+  tiempoDeDescanso: 20
   capturada: 0
   anguloVistaHorizontal: 93.4800033569336
   distanciaVista: 8
@@ -16944,14 +16944,15 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(396,18)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-4,138)"},"ID":1,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-283.241882,162.207458)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"ImprisonedCondition","NodeData":{"Offset":"(-90,176.818237)"},"ID":3,"Name":"Imprisoned
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(396,18)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-4,138)"},"ID":1,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-411.241882,162.207458)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"ImprisonedCondition","NodeData":{"Offset":"(-90,176.818237)"},"ID":3,"Name":"Imprisoned
         Condition","Instant":true},{"Type":"GhostReturnAction","NodeData":{"Offset":"(80,176.818237)"},"ID":4,"Name":"Ghost
         Return Action","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(264.2951,204.3752)"},"ID":5,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"GhostPalancaAction","NodeData":{"Offset":"(-291.5,165)"},"ID":6,"Name":"Ghost
         Palanca Action","Instant":true},{"Type":"GhostChaseAction","NodeData":{"Offset":"(-136.123978,172.258057)"},"ID":7,"Name":"Ghost
-        Chase Action","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(0.529813766,167.417542)"},"ID":8,"Name":"Return
-        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.232564926,108.372093)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-137.600754,116.00032)"},"ID":10,"Name":"Inverter","Instant":true,"Children":[{"Type":"DoorCondition","NodeData":{"Offset":"(-2.47961426,123.561218)"},"ID":11,"Name":"Door
-        Condition","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(142.439087,118.048843)"},"ID":12,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},{"Type":"GhostImprisonAction","NodeData":{"Offset":"(166.2387,172.258057)"},"ID":13,"Name":"Ghost
-        Imprison Action","Instant":true},{"Type":"GhostCloseDoorAction","NodeData":{"Offset":"(353.845184,173.949646)"},"ID":14,"Name":"Ghost
+        Chase Action","Instant":true},{"Type":"GhostCloseDoorAction","NodeData":{"Offset":"(6.019245,173.949646)"},"ID":8,"Name":"Ghost
+        Close Door Action","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(163.5733,167.417542)"},"ID":9,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.232564926,108.372093)"},"ID":10,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-137.600754,116.00032)"},"ID":11,"Name":"Inverter","Instant":true,"Children":[{"Type":"DoorCondition","NodeData":{"Offset":"(-2.47961426,123.561218)"},"ID":12,"Name":"Door
+        Condition","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(142.439087,118.048843)"},"ID":13,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},{"Type":"GhostImprisonAction","NodeData":{"Offset":"(307.54306,172.258057)"},"ID":14,"Name":"Ghost
+        Imprison Action","Instant":true},{"Type":"GhostCloseDoorAction","NodeData":{"Offset":"(489.6543,181.1344)"},"ID":15,"Name":"Ghost
         Close Door Action","Instant":true}]}]}}'
       fieldSerializationData:
         typeName: []

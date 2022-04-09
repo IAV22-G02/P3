@@ -24,7 +24,8 @@ public class GhostPalancaAction : Action
         lever = blackboard.nearestLever(this.gameObject);
         var navHit = new NavMeshHit();
         NavMesh.SamplePosition(transform.position, out navHit, 2, NavMesh.AllAreas);
-        agent.SetDestination(lever.transform.position);
+        if(agent.isActiveAndEnabled) agent.SetDestination(lever.transform.position);
+
         if (Vector3.SqrMagnitude(transform.position - lever.transform.position) < 1)
         {
             agent.SetDestination(transform.position);

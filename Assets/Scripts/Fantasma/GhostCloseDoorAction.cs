@@ -23,7 +23,7 @@ public class GhostCloseDoorAction : Action
 
     public override TaskStatus OnUpdate()
     {
-        agent.SetDestination(puerta.transform.position);
+        if(agent.enabled)agent.SetDestination(puerta.transform.position);
         if (Vector3.SqrMagnitude(transform.position - puerta.transform.position) < 1.5f)
         {
             agent.SetDestination(transform.position);

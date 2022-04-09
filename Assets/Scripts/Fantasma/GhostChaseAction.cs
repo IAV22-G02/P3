@@ -22,10 +22,11 @@ public class GhostChaseAction : Action
     public override TaskStatus OnUpdate()
     {
         if(agent.isActiveAndEnabled)agent.SetDestination(singer.transform.position);
+
         if (Vector3.SqrMagnitude(transform.position - singer.transform.position) < 1.5f)
         {
             agent.SetDestination(transform.position);
-            singer.transform.parent = transform;
+            singer.transform.parent = this.transform;
             singer.GetComponent<Cantante>().capturada = true;
             return TaskStatus.Success;
         }

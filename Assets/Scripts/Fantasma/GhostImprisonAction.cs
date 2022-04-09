@@ -30,6 +30,7 @@ public class GhostImprisonAction : Action
             agent.SetDestination(transform.position);
             blackboard.singer.transform.parent = null;
             blackboard.singer.GetComponent<Cantante>().capturada = false;
+            blackboard.singer.GetComponent<Cantante>().asaltante = null;
             return TaskStatus.Success;
         }
         else return TaskStatus.Running;

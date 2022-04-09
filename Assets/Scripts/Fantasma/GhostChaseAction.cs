@@ -26,8 +26,8 @@ public class GhostChaseAction : Action
         if (Vector3.SqrMagnitude(transform.position - singer.transform.position) < 1.5f)
         {
             agent.SetDestination(transform.position);
-            singer.transform.parent = this.transform;
             singer.GetComponent<Cantante>().capturada = true;
+            singer.GetComponent<Cantante>().asaltante = this.gameObject.transform;
             return TaskStatus.Success;
         }
         else return TaskStatus.Running;

@@ -15,6 +15,8 @@ public class Cantante : MonoBehaviour
     private double tiempoComienzoDescanso;
     // Si esta capturada
     public bool capturada = false;
+    //Asaltante que la captura
+    public Transform asaltante = null;
 
     [Range(0, 180)]
     // Angulo de vision en horizontal
@@ -80,6 +82,12 @@ public class Cantante : MonoBehaviour
         }
         return tiempoComienzoCanto >= tiempoDeCanto;
     }
+
+    public bool EstaCapturada()
+    {
+        return capturada;
+    }
+
 
     // Comienza a descansar, reseteando el temporizador
     public void Descansar()
@@ -177,4 +185,5 @@ public class Cantante : MonoBehaviour
             }
         }
     }
+
 }

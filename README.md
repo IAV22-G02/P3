@@ -33,7 +33,7 @@ de la guarida del fantasma, lo que hace que este se enfade y por supuesto, si el
 + **Patio de butacas(P).** Estancia incial del público, dividido en Este y Oeste. Los espectadores huyen al vestíbulo si cae la lámpara correspondiente a su lado del patio de butacas,
 Esta conectada con el escenario y el vestíbulo, y es visible desde los palcos.
 
-+ **Vest�bulo(V).** Es la zona más externa de la ópera, donde van los bloques de p�blico
++ **Vestíbulo(V).** Es la zona más externa de la ópera, donde van los bloques de público
 cuando se asustan. Simplemente conecta con el patio de butacas.
 
 + **Escenario(E).** Estancia inicial de la cantante, que intercala con las bambalinas(donde se toma su descanso), también conecta con el patio de butacas, los palcos y es posible dejarse caer
@@ -94,7 +94,7 @@ cursores y una única tecla de acción para interactuar con otros elementos. Aun
 cámaras que sigan a cada uno de los personajes, conviene que haya una adicional que
 nos dé la vista general del entorno [0,5 ptos.].<br><br>
 
-+ **B.** Hacer que parte del público huya tras la caída de una lámpara, y regrese en cuanto est�
++ **B.** Hacer que parte del público huya tras la caída de una lámpara, y regrese en cuanto está
 arreglada. Será una navegación y un movimiento trivial, sin apenas decisión [0,5 ptos.].<br><br>
 
 + **C.** Representar a la cantante como un agente inteligente basado en una máquina de estados
@@ -244,7 +244,7 @@ class KinematicWander :
   character: Static
   maxSpeed: float
   position: vector2
-  # The maximum rotation speed we�d like, probably should be smaller
+  # The maximum rotation speed we'd like, probably should be smaller
   # than the maximum possible, for a leisurely change in direction.
   maxRotation: float
  

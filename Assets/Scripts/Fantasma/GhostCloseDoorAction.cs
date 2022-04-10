@@ -25,7 +25,11 @@ public class GhostCloseDoorAction : Action
 
     public override TaskStatus OnUpdate()
     {
-        if (blackboard.pianoed || blackboard.hited)
+        if (blackboard.isGhostInSotano &&
+               blackboard.pianoed)
+            return TaskStatus.Failure;
+
+        if (blackboard.hited)
             return TaskStatus.Failure;
 
         PalancaPuerta puertaScript = puerta.GetComponentInChildren<PalancaPuerta>();

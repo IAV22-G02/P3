@@ -22,7 +22,11 @@ public class GhostPalancaAction : Action
 
     public override TaskStatus OnUpdate()
     {
-        if (blackboard.pianoed || blackboard.hited)
+        if (blackboard.isGhostInSotano &&
+               blackboard.pianoed)
+            return TaskStatus.Failure;
+
+        if (blackboard.hited)
             return TaskStatus.Failure;
 
         lever = blackboard.nearestLever(this.gameObject);

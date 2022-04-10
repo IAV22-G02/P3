@@ -23,8 +23,11 @@ public class GhostImprisonAction : Action
 
     public override TaskStatus OnUpdate()
     {
+        if (blackboard.isGhostInSotano &&
+               blackboard.pianoed)
+            return TaskStatus.Failure;
 
-        if (blackboard.pianoed || blackboard.hited)
+        if (blackboard.hited)
             return TaskStatus.Failure;
 
         if (agent.enabled)

@@ -24,6 +24,9 @@ public class GhostChaseAction : Action
 
     public override TaskStatus OnUpdate()
     {
+        if (blackboard.pianoed || blackboard.hited)
+            return TaskStatus.Failure;
+
         lever = blackboard.nearestLever(this.gameObject);
 
         ControlPalanca palancaReal = lever.GetComponentInChildren<ControlPalanca>();

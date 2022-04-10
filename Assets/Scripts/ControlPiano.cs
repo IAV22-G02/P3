@@ -11,6 +11,10 @@ public class ControlPiano : MonoBehaviour
     public GameObject ghost;
     public bool tocado = false;
 
+    float timeSinceLastInteraction = 0;
+
+    float timeToStop = 5;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Cantante>() || other.gameObject.GetComponent<Player>()) return;
@@ -20,6 +24,16 @@ public class ControlPiano : MonoBehaviour
     public void Interact()
     {
         tocado = true;
+        timeSinceLastInteraction = timeToStop;
         GetComponent<AudioSource>().Play();
+    }
+
+    public void Update()
+    {
+        if (timeSinceLastInteraction >= 0)
+        {
+            timeSinceLastInteraction--;
+            tocado = false;
+        }
     }
 }

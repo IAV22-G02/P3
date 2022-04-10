@@ -23,7 +23,12 @@ public class GhostImprisonAction : Action
 
     public override TaskStatus OnUpdate()
     {
-        if(agent.enabled)
+
+        if (blackboard.piano.
+            GetComponentInChildren<ControlPiano>().tocado)
+            return TaskStatus.Failure;
+
+        if (agent.enabled)
             agent.SetDestination(prison.transform.position);
         if (Vector3.SqrMagnitude(transform.position - prison.transform.position) < 1.5f)
         {

@@ -12,11 +12,13 @@ public class GhostReturnAction : Action
 {
     NavMeshAgent agent;
     GameObject musicRoom;
+    FantasmaInfo fInfo;
 
     public override void OnAwake()
     {
         agent = GetComponent<NavMeshAgent>();
         musicRoom = GameObject.FindGameObjectWithTag("Blackboard").GetComponent<GameBlackboard>().musicRoom;
+        fInfo = GetComponent<FantasmaInfo>();
     }
 
     public override TaskStatus OnUpdate()
@@ -26,6 +28,7 @@ public class GhostReturnAction : Action
         if (Vector3.SqrMagnitude(transform.position - musicRoom.transform.position) < 1.5f)
         {
             agent.SetDestination(transform.position);
+            fInfo.relajado();
             return TaskStatus.Success;
         }
         else return TaskStatus.Running;

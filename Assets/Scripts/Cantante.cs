@@ -17,6 +17,8 @@ public class Cantante : MonoBehaviour
     public bool capturada = false;
     //Asaltante que la captura
     public Transform asaltante = null;
+    //Transform de la celda
+    public Transform celda = null;
 
     [Range(0, 180)]
     // Angulo de vision en horizontal

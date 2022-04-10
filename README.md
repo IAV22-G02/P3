@@ -2,9 +2,9 @@
 Repository for the Artificial Intelligence signature of the UCM. Practice 3
 ___________________________________________________________________________
 
-<!---
- # Video de pruebas [aqu�](https://youtu.be/ztK_XIu5nJk)
--->
+
+# Video de pruebas [aquí](https://youtu.be/kdz3KuYpfRA)
+
 
 # Autores
 

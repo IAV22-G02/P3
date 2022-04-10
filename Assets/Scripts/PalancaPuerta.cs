@@ -15,6 +15,7 @@ public class PalancaPuerta : MonoBehaviour
     public float step = 0.2f;
     public float altura = 5.8f;
 
+    bool abierta = false;
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Cantante>() || other.gameObject.GetComponent<Player>()) return;
@@ -25,6 +26,7 @@ public class PalancaPuerta : MonoBehaviour
     public void Interact()
     {
         Blackboard.gate = !Blackboard.gate;
+        abierta = !abierta;
         if (!Blackboard.gate)
         {
             gate.GetComponent<Rigidbody>().isKinematic = false;
@@ -41,4 +43,8 @@ public class PalancaPuerta : MonoBehaviour
             gate.transform.Translate(new Vector3(0, step, 0));
         }
     }
+
+    public bool Abierta() { return abierta; }
+
+    public void abrir() { abierta = !abierta; }
 }

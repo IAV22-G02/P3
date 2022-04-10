@@ -12,16 +12,29 @@ public class GhostChaseAction : Action
 {
     NavMeshAgent agent;
     GameObject singer;
+    GameObject lever;
+    GameBlackboard blackboard;
 
     public override void OnAwake()
     {
         agent = GetComponent<NavMeshAgent>();
         singer = GameObject.FindGameObjectWithTag("Blackboard").GetComponent<GameBlackboard>().singer;
+        blackboard = GameObject.FindGameObjectWithTag("Blackboard").GetComponent<GameBlackboard>();
     }
 
     public override TaskStatus OnUpdate()
     {
-        if(agent.isActiveAndEnabled)agent.SetDestination(singer.transform.position);
+        lever = blackboard.nearestLever(this.gameObject);
+
+        ControlPalanca palancaReal = lever.GetComponentInChildren<ControlPalanca>();
+
+        GameObject publico = palancaReal.publico;
+
+        Publico publicoScript = publico.GetComponentInChildren<Publico>();
+
+        if (publicoScript.getLuces()) return TaskStatus.Failure;
+
+        if (agent.isActiveAndEnabled)agent.SetDestination(singer.transform.position);
 
         if (Vector3.SqrMagnitude(transform.position - singer.transform.position) < 1.5f)
         {

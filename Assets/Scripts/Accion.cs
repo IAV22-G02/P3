@@ -19,6 +19,7 @@ public class Accion : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Puerta"))
         {
+            //other.gameObject.GetComponent<PalancaPuerta>().abrir();
             Debug.Log("Ha tocado la puerta");
         }
     }

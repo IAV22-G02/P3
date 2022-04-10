@@ -10,8 +10,8 @@ public class Captura : MonoBehaviour
 
         if(cant!= null && cant.capturada)
         {
-            cant.asaltante = transform.parent;
-            cant.capturada = true;
+            cant.asaltante = null;
+            cant.capturada = false;
         }
         else if (cant != null && other.gameObject.CompareTag("Cantante"))
         {

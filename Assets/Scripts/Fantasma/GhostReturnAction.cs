@@ -24,6 +24,9 @@ public class GhostReturnAction : Action
 
     public override TaskStatus OnUpdate()
     {
+        blackboard.singer.GetComponent<Cantante>().capturada = false;
+        blackboard.singer.GetComponent<Cantante>().asaltante = null;
+
 
         if (agent.enabled)
             agent.SetDestination(musicRoom.transform.position);

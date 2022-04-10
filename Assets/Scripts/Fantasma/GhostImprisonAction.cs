@@ -24,8 +24,7 @@ public class GhostImprisonAction : Action
     public override TaskStatus OnUpdate()
     {
 
-        if (blackboard.piano.
-            GetComponentInChildren<ControlPiano>().tocado)
+        if (blackboard.pianoed || blackboard.hited)
             return TaskStatus.Failure;
 
         if (agent.enabled)
